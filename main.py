@@ -65,7 +65,7 @@ def get_ec2(l_session: boto3.session, l_regions: []):
         ec2 = l_session.resource('ec2', region_name=region)
         print("Checking region: {}".format(region))
         for instance in ec2.instances.all():
-            line = defaultdict(lambda: "")
+            line = defaultdict(lambda: "-")
             line['id'] = instance.id
             line['instance_type'] = instance.instance_type
             line['cpus'] = instance.cpu_options['CoreCount'] * \
@@ -76,8 +76,8 @@ def get_ec2(l_session: boto3.session, l_regions: []):
                 size += volume.size
             line['storage'] = size
             try:
-                line['platform'] = instance.image.platform_details
-                line['image_description'] = instance.image.description
+                line['platform'] = str(instance.image.platform_details).replace(',',';')
+                line['image_description'] = str(instance.image.description).replace(',',';')
             except:
                 pass
 
@@ -109,5 +109,6 @@ if __name__ == '__main__':
     session = get_session()
     regions = get_regions(session)
     ec2s = get_ec2(session, regions)
-    print('Completed')
+    print('Data collection completed')
     write_to_csv(ec2s)
+    print('Please check ec2s.csv for details.')
