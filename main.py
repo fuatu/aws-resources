@@ -75,7 +75,10 @@ def get_ec2(l_session: boto3.session, l_regions: []):
             for volume in instance.volumes.all():
                 size += volume.size
             line['storage'] = size
-            line['platform'] = instance.image.platform_details
+            try:
+                line['platform'] = instance.image.platform_details
+            except:
+                pass
             line['image_description'] = instance.image.description
             line['state'] = instance.state['Name']
             line['region'] = region

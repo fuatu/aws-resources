@@ -1,6 +1,6 @@
 # AWS Resources
 
-Get all EC2 instances details from all regions in csv file
+Get all EC2 instances details from all AWS regions in a csv file.
 
 ## Prerequisites
 Python 3.x installed
