@@ -77,9 +77,10 @@ def get_ec2(l_session: boto3.session, l_regions: []):
             line['storage'] = size
             try:
                 line['platform'] = instance.image.platform_details
+                line['image_description'] = instance.image.description
             except:
                 pass
-            line['image_description'] = instance.image.description
+
             line['state'] = instance.state['Name']
             line['region'] = region
             l_ec2s.append(line)
