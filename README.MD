@@ -25,4 +25,11 @@ $ pip install -r requirements.txt
 $ python main.py
 ```
 
+## Sample CSV file content
+|id                 |instance_type|cpus|memory_MBs|storage_GBs|platform  |image_description     |state  |region   |
+|-------------------|-------------|----|----------|-----------|----------|----------------------|-------|---------|
+|i-0dxxxxxxxxxxxxx  |t4g.micro    |2   |1024      |14         |Linux/UNIX|Fedora AMI Description|stopped|eu-west-1|
+|i-00xxxxxxxxxxxxx  |t4g.micro    |2   |1024      |14         |Linux/UNIX|Fedora AMI Description|stopped|eu-west-1|
+|i-05xxxxxxxxxxxxx  |t4g.micro    |2   |1024      |14         |Linux/UNIX|Fedora AMI Description|stopped|eu-west-1|
+|i-0exxxxxxxxxxxxx  |t4g.micro    |2   |1024      |14         |Linux/UNIX|Fedora AMI Description|stopped|eu-west-1|
 
